@@ -1,0 +1,133 @@
+---
+
+const { titulo, tecnologias, descripcion, link_pagina, id } = Astro.props;
+
+const imagenes = {
+  axios: '/img/lenguajes/axios.png',
+  astro: '/img/lenguajes/astro.svg',
+  bootstrap: '/img/lenguajes/bootstrap.png',
+  css: '/img/lenguajes/css.png',
+  file: '/img/lenguajes/file.png',
+  flask: '/img/lenguajes/flask.png',
+  git: '/img/lenguajes/git.png',
+  html5: '/img/lenguajes/html5.png',
+  java: '/img/lenguajes/java.png',
+  javascript: '/img/lenguajes/javascript.png',
+  pandas: '/img/lenguajes/pandas.png',
+  python: '/img/lenguajes/python.png',
+  react: '/img/lenguajes/react.png',
+  supabase: '/img/lenguajes/supabase.png',
+  tailwind: '/img/lenguajes/tailwind.ico',
+  sql: '/img/lenguajes/sql.png',
+  ssh: '/img/lenguajes/ssh.png',
+  ssis: '/img/lenguajes/SSIS.png',
+  wordpress: '/img/lenguajes/wordpress.png',
+  sklearn: '/img/lenguajes/sklearn.svg',
+};
+
+
+---
+<div class="tarjetas">
+    <div class="tarjeta">
+        <div class="tarjeta-icono">
+            <i class="fa-regular fa-folder-open" aria-hidden="true"></i>
+        </div>
+        <div class="tarjeta-lenguaje">
+            
+            {tecnologias.map((tecnologia) => ( <img src={imagenes[tecnologia]} class="tarjeta__lenguaje" alt=""/>))}
+        </div>
+        
+        <div class="tarjeta-titulo">
+            <h3 class="tarjeta__titulo">
+                {titulo}
+            </h3>
+        </div>
+        <div class="tarjeta-descripcion">
+            <p class="tarjeta__descripcion">{descripcion}</p>
+        </div>
+    
+        <div class="tarjeta-enlace">
+            <a class="boton-black" href={`/infoProyecto/${id}`}>Ver proyecto <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            {link_pagina && <a class="boton-black" target="_blank" href= {link_pagina} >Pagina <i class="fa-solid fa-globe"></i></a>}
+        </div>
+
+    </div>
+
+    </div>
+</div>
+
+<style>
+
+    .primario{
+        color: var(--primario)
+    }
+
+    .tarjeta {
+        display: grid;
+        grid-template-areas:
+            "icono lenguaje"
+            "titulo titulo"
+            "descripcion descripcion"
+            "boton boton";
+        min-height: 300px;
+        border-radius: 2%;
+        width: 700px;
+        padding: 20px;
+    }
+
+    .tarjeta .tarjeta-icono {
+        grid-area: icono;
+        text-align: start;
+        font-size: 2.5em;
+        color: var(--amarillo);
+    }
+    
+    .tarjeta .tarjeta-lenguaje {
+        grid-area: lenguaje;
+        text-align: end;
+    }
+
+    .tarjeta .tarjeta__lenguaje {
+        height: 35px;
+    }
+
+    .tarjeta .tarjeta-titulo {
+        grid-area: titulo;
+        text-align: start;
+    }
+
+    .tarjeta .tarjeta__titulo {
+        text-transform: uppercase;
+        font-size: 1.8em;
+    }
+
+    .tarjeta .tarjeta-descripcion {
+        grid-area: descripcion;
+        text-align: start;
+    }
+
+    .tarjeta .tarjeta__descripcion {
+        font-size: 1.2em;
+        font-weight: 500;
+        line-height: 1.5;
+        color: var(--grisClaro);
+    }
+
+    .tarjeta .tarjeta-enlace {
+        text-align: start;
+        grid-area: boton;
+        display: flex;
+        align-items: center;
+        column-gap: 15px;
+    }
+
+    .tarjeta .tarjeta-enlace a {
+        font-size: 0.8em;
+    }
+
+    .tarjetas .ver-todos a {
+        padding: 0.8vw;
+        background-color: #191919;
+        border-radius: 0.5vw;
+    }
+</style>

@@ -1,0 +1,119 @@
+---
+import type { GetStaticPaths } from "astro";
+import proyectosRealizados from "../../data/proyectos.json"
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import Technologys from "../../components/Technologys.astro";
+
+export async function getStaticPaths(){
+    return proyectosRealizados.map((proyectos) => ({
+        params: {
+            id: proyectos.id
+        },
+        props: {
+            proyectos: proyectos
+        },
+    }))
+}
+
+const {titulo, imagenes, funcionalidades, tecnologias, link_pagina, link_github, link_backend, link_frontend, tipo, relacion } = Astro.props.proyectos
+
+const iconoGithub = 'fa-brands fa-github'
+const iconoCandado = 'fa-solid fa-shield'
+
+---
+
+<BaseLayout>
+    <div class="cabecera">
+        <h1>{titulo}</h1>
+
+        <a href="/projects/" ><i class="fa-solid fa-arrow-left"></i></a>
+    </div>
+
+
+
+    <div>
+        <h3><i class="fa-solid fa-code"></i> Tecnologías:</h3>
+        {tecnologias && tecnologias.map((tecnologia) =>(
+            <Technologys tecnologia = {tecnologia}/>
+        )) }
+    </div>
+
+    <h3>Repositorios:</h3>
+    <div class="contenedor">
+            <div>
+                <p>Repositorio:</p>
+                {link_github == 'privado' ?
+                <a class="boton-black boton-bloqueado" target="_blank" href={link_github}>Privado <i class={iconoGithub}></i></a>:
+                <a class="boton-black" target="_blank" href={link_github}>click aca <i class={iconoGithub}></i></a>
+                }
+            </div>
+    
+            <div>
+                {tipo == 'web'?
+                    link_backend == 'privado' ? <p>Backend: </p> <a class="boton-black boton-bloqueado">Privado <i class={iconoCandado}></i></a> : 
+                    <p>Backend:</p> <a class="boton-black" target="_blank" href={link_backend}>click aca <i class={iconoGithub}></i></a>:
+    
+                    link_frontend == 'privado' ? <p>Frontend:</p> <a class="boton-black boton-bloqueado">Privado <i class={iconoCandado}></i></a>: 
+                    <p>Frontend:</p> <a class="boton-black" target="_blank" href={link_frontend}>click aca <i class={iconoGithub}></i></i></a>
+                }
+            </div>
+        </div>
+
+    {link_pagina && 
+    <div>
+        <h3>web:</h3> <a class="boton-black" href={link_pagina} target="_blank">click aca <i class="fa-solid fa-globe"></i></a>
+    </div> }
+
+
+    <div>
+        <p><i class="fa-regular fa-file-lines"></i> Funcionalidades:</p>
+        {funcionalidades && funcionalidades.map((funcionalidad) =>(
+            <li>{funcionalidad}.</li>
+        )) }   
+    </div>
+    
+    {relacion &&
+        <div>
+            <h3>Tener en cuenta:</h3>
+            <p>Se usa en conjunto con el proyecto <b>{relacion}</b></p>
+        </div>
+    }
+    
+    <div class="imagenes-proyecto">
+        {imagenes && imagenes.map((imagen) =>(
+            <img src={imagen} alt={`Imagen`} />
+        )) }
+    </div>
+
+
+</BaseLayout>
+
+<style>
+
+    .contenedor{
+        display: flex;
+        column-gap: 15px;
+    }
+
+
+    .cabecera{
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    .imagenes-proyecto{
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        align-items: center;
+    }
+
+    .imagenes-proyecto img{
+        width: 800px;
+        border-radius: 0.5vw;
+    }
+
+</style>

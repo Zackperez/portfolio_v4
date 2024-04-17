@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = "Sobre mi";
+---
+
+<BaseLayout pageTitle={pageTitle}> 
+    <div class="sobre-mi">
+        <div class="sobre-mi-titulo">
+            <h1>Sobre mi</h1>
+        </div>
+        <div class="sobre-mi-descripcion">
+            <p>Despues de terminar el bachillerato en Venezuela, me mudé a Barranquilla - Colombia en donde estudié la carrera de Ingeniería en Sistemas y Computación en la Corporación Universitaria Latinoamericana complementando mis estudios con cursos online para mejorar mis conocimientos y habilidades.</p>
+            <p>Me gusta la programación en general. He particiado en distintos proyectos tanto laboral como personales los cuales me han permitido fortalecer mis conocimientos y habilidades en el desarrollo web y en la ingeniería de datos.</p>
+        </div>
+
+    </div>
+</BaseLayout>
+
+<style>
+    .sobre-mi-descripcion{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sobre-mi-descripcion p{
+        font-size: 1em;    
+    }

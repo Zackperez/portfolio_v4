@@ -1,0 +1,79 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Cards from "../components/Cards.astro";
+import proyectosRealizados from "../data/proyectos.json"
+
+const pageTitle = "Proyectos";
+
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <h1>Tecnologías que manejo:</h1>
+  <li><b>En el Frontend:</b></p>
+  <p>HTML, JavaScript, CSS y Axios.</p>
+  <li><b>Bases de datos:</b> </p>
+  <p>Supabase y MySql.</p>
+  <li><b>En el Backend:</b></p>
+  <p>Python y Flask.</p>
+  <li><b>En el analisis de datos:</b></p>
+  <p>Jupyter Notebook, Pandas, Numpy, Excel, SQL, SSIS, Scikit-learn.</p>
+  <li><b>Actualmente estoy aprendiendo:</b></li>
+  <p>Astro, React y Tailwind.</p>
+  <div class="proyectos">
+
+    <div class="cabecera">
+        <h1> <i class="fa-solid fa-folder" aria-hidden="true"></i> Proyectos realizados</h1>
+        <a class="boton" target ="_blank"  href="https://github.com/jeantpdev"><i class="fa-brands fa-github" aria-hidden="true"></i> Ver todos </a>
+    </div>
+
+    
+    <div class="tarjetas">
+      {proyectosRealizados.map((proyectos, id) => {
+
+        return(
+        <Cards 
+          titulo = {proyectos.titulo},
+          tecnologias = {proyectos.tecnologias},
+          descripcion = {proyectos.descripcion},
+          link_github = {proyectos.link_github},
+          link_pagina = {proyectos.link_pagina},
+          id = {id},
+        />
+        );
+    })
+    }
+    </div>
+
+  </div>
+</BaseLayout>
+
+<style>
+
+    .proyectos{
+        display: flex;
+        flex-direction: column;
+        padding: 50px 0;
+    }
+
+    .proyectos .cabecera{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .tarjetas {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 1vw;
+        row-gap: 2vw;
+    }
+</style>
+
+<!-- 
+    <div class="proyectos">
+        <h1><i class="fa-solid fa-folder" aria-hidden="true"></i> Proyectos realizados </h1>
+        <Cards />
+    </div>
+
+ -->

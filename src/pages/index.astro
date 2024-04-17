@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = "Jean Trujillo";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+	<div class="introduccion">
+		<figure class="foto">
+		<img src = '/img/foto-perfil.jpeg' alt = "foto de perfil de jean" />
+		</figure>
+		<div class="descripcion">
+			<h1><i class="fa-solid fa-terminal"></i> Hola, soy <span class="color">Jean Trujillo</span></h1>
+			<p>
+				Me gusta la programación en general. Tengo experiencia en
+				desarrollos de páginas web y en el ámbito de la ingeniería de
+				datos.
+			</p>
+			<div class="links">
+				<a class="boton" target ="_blank"  href="https://www.linkedin.com/in/jeantpdev/">LinkedIn</a>
+				<a class="boton" target ="_blank"  href="https://drive.google.com/file/d/14Gr9Pqu1ouFzmEK0RMet5Uh7jtJ0hjY2/view?usp=sharing">Hoja de vida</a>
+			</div>
+		</div>
+	</div>
+
+
+
+	<style>
+		.introduccion {
+			display: flex;
+		}
+
+		.color{
+			color: var(--primario);
+		}
+
+		.introduccion figure img {
+			/* cambia estos dos valores para definir el tamaño de tu círculo */
+			height: 150px;
+			width: 150px;
+			/* los siguientes valores son independientes del tamaño del círculo */
+			background-repeat: no-repeat;
+			background-position: 50%;
+			border-radius: 50%;
+			background-size: 100% auto;
+		}
+
+		.introduccion .descripcion .links{
+			text-align: end;
+		}
+
+	</style>
+</BaseLayout>

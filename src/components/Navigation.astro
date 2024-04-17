@@ -1,0 +1,64 @@
+---
+
+---
+
+<div class="menu">
+    <div class="titulo-menu">
+        <!--
+        <p><span class="simbolo">>_</span> jeantpdev | <span class="idioma">es</span></p>
+     -->
+     <p class="jeantpdev">jeantp.dev</p>
+    </div>
+    <div class="enlaces-menu">
+        <a href="/">Inicio</a>
+        <a href="/about/">Sobre mi</a>
+        <a href="/experience/">Experiencia laboral</a>
+        <a href="/projects/">Proyectos</a>
+    </div>
+</div>
+
+<style>
+    .menu {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 2px solid #cdcdcd;
+    }
+
+    .titulo-menu{
+        display: flex;
+        align-items: center;
+    }
+
+    .titulo-menu p {
+        font-weight: 500;
+    }
+
+    .jeantpdev{
+        background-color: #19232c;
+        color: #728796;
+        padding: 3px 20px;
+        border-radius: 5px;
+    }
+
+    .jeantpdev:hover{
+        color: var(--primario)
+    }
+
+    .simbolo {
+        font-weight: bold;
+    }
+
+    .idioma{
+        font-size: 0.6em;
+    }
+
+    .enlaces-menu {
+        display: flex;
+        align-items: center;
+        column-gap: 25px;
+    }
+
+    .enlaces-menu a:hover {
+        border-bottom: 2px solid var(--primario);
+    }
+</style>

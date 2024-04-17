@@ -1,0 +1,235 @@
+---
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = "Jean Trujillo";
+
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <div class="contenedor-experiencia">
+    <div class="cabecera-experiencia">
+      <div class="titulo">
+        <h1>
+          <i class="fa-solid fa-briefcase"></i> Experiencia laboral
+        </h1>
+      </div>
+
+      <div class="descripcion">
+        <p> Fui practicante en <b>TIGO Colombia</b> como <b>ingeniero de datos</b> el cual me ha permitido aprender más sobre <b>Python, SQL</b> y herramientas como <b>SSIS y Excel.</b> </p>
+        <p> También he trabajado dando soporte en el área tecnológica en la compañia <b>Equiti</b> como <b>desarrollador web</b></p>
+      </div>
+
+      <div class="contenido-tarjetas">
+        <div class="tarjeta-experiencia">
+          <div class="imagen">
+            <img src="/img/Tigolatam.png" alt="" />
+          </div>
+
+          <div class="cabecera">
+            <div class="titulo">
+              <p>Practicante ingeniero de datos</p>
+            </div>
+
+            <div class="fecha">
+              <p>01/08/2023 - 31/01/2024</p>
+            </div>
+          </div>
+
+          <div class="cuerpo">
+            <div class="descripcion">
+              <ul class="lista-actividades">
+                <li>
+                  <b>Desarrollé scripts y automatizaciones en Python para optimizar procesos operativos:</b>
+                </li>
+                <ul class="sub-lista">
+                  <li>
+                    <b>Script clasificación de vendors:</b> Mediante la lectura de
+                    un excel (que podía contener hasta 200.000 registros) y un archivo
+                    que contenia los datos necesario, se hacia un cruce en el que
+                    se clasificaba cada registro del excel mediante una serie de
+                    condiciones y al terminar, se tenia un reporte con todos los
+                    registros clasificados.
+                  </li>
+                  <li>
+                    <b>Script conteo de archivos:</b> Realizaba conteos de distintas
+                    carpetas mediante el uso de SSH de manera diaria y a su vez,
+                    alimentaba un excel clasificando la cantidad de archivos, archivo
+                    vacío o menor al tamaño promedio y finalmente, se enviaba un
+                    correo notificando si habían archivos vacíos o por debajo del
+                    promedio.
+                  </li>
+                </ul>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pie">
+            <div class="herramientas">
+                <!-- 
+              <img src="/img/lenguajes/SSIS.png" alt="" />
+              <img src="/img/lenguajes/python.png" alt="" />
+              <img src="/img/lenguajes/sql.png" alt="" />
+              <img src="/img/lenguajes/ssh.png" alt="" />
+              <img src="/img/lenguajes/pandas.png" alt="" />
+              -->
+            </div>
+          </div>
+        </div>
+
+        <div class="tarjeta-experiencia">
+          <div class="imagen">
+            <img src="/img/equiti.webp" alt="" />
+          </div>
+
+          <div class="cabecera">
+            <div class="titulo">
+              <p>Desarrollador Web y Soporte TI</p>
+            </div>
+
+            <div class="fecha">
+              <p>22/11/2023 - 29/02/2024</p>
+            </div>
+          </div>
+
+          <div class="cuerpo">
+            <div class="descripcion">
+              <ul class="lista-actividades">
+                <li><b>Realicé un proceso ETL de un amplio conjunto de datos:</b></li>
+
+                    <ul class="sub-lista">
+                    <li><b>Limpieza de datos: </b>Arregle todos los registros que contenia el conjunto de datos incluyendo nombres de agentes, fechas, entre otros... Se hizo con Python y la libreria Pandas. Esta limpieza permitió subir los registros a una base de datos en la nube (supabase). </li>
+                    </ul>
+
+                <li>
+                  <b>Participe en el diseño y desarrollo de un CRM</b> 
+                </li>
+
+                    <ul class="sub-lista">
+                        <li><b>CRM - Plataforma web:</b>La plataforma contiene distintas operaciones CRUD según el usuario, gráficas de estadísticas de las ventas realizadas, por realizar, promedios, entre otras. Se realizó usando HTML, CSS y JavaScript. Las consultas a la BD (supabase) se hacian mediante una API creada con Python usando Flask. Esto permitió llevar un mejor control de las ventas, se evitaba el ingreso erróneo de datos, el seguimiento en tiempo real de las ventas e incluir estadísticas relacionadas a ventas.</li>   
+                    </ul>
+
+              </ul>
+            </div>
+          </div>
+
+          <div class="pie">
+            <div class="herramientas">
+                <!-- 
+              <img src="/img/lenguajes/css.png" alt="" />
+              <img src="/img/lenguajes/python.png" alt="" />
+              <img src="/img/lenguajes/supabase.png" alt="" />
+              <img src="/img/lenguajes/javascript.png" alt="" />
+              <img src="/img/lenguajes/html5.png" alt="" />
+              <img src="/img/lenguajes/axios.png" alt="" />
+              -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  /*  CONTENIDO EXPERIENCIA */
+
+  .contenedor-experiencia {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 0;
+  }
+
+  .contenedor-experiencia .cabecera-experiencia {
+    grid-area: titulo;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+
+  .contenedor-experiencia .contenido-tarjetas {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    column-gap: 20px;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+
+  .contenedor-experiencia .contenido-tarjetas .tarjeta-experiencia {
+    display: grid;
+    grid-template-areas:
+      "imagen cabecera"
+      "cuerpo cuerpo"
+      "pie pie";
+    grid-template-columns: auto 1fr;
+    padding: 20px 10px;
+    column-gap: 20px;
+  }
+
+  .tarjeta-experiencia .imagen {
+    grid-area: imagen;
+    display: flex;
+    align-items: start;
+  }
+
+  .tarjeta-experiencia .imagen img {
+    height: 50px;
+  }
+
+  .tarjeta-experiencia .cabecera {
+    grid-area: cabecera;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .tarjeta-experiencia .cabecera .titulo p {
+    font-weight: 700;
+  }
+
+  .tarjeta-experiencia .cabecera .fecha p {
+    font-weight: 700;
+
+  }
+
+  .tarjeta-experiencia .cuerpo {
+    grid-area: cuerpo;
+    padding: 0 20px;
+  }
+
+  .tarjeta-experiencia .cuerpo .descripcion .lista-actividades,
+  .sub-lista {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+  }
+
+  .tarjeta-experiencia .cuerpo .descripcion .lista-actividades .sub-lista {
+    margin: 0 20px;
+  }
+
+  .tarjeta-experiencia
+    .cuerpo
+    .descripcion
+    .lista-actividades
+    .sub-lista
+    .sub-sub-lista {
+    margin: 0 10px;
+  }
+
+  .tarjeta-experiencia .pie {
+    grid-area: pie;
+  }
+
+  .tarjeta-experiencia .pie .herramientas {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    column-gap: 10px;
+  }
+
+  .tarjeta-experiencia .pie .herramientas img {
+    height: 30px;
+  }
+</style>
